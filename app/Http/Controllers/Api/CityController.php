@@ -50,7 +50,8 @@ class CityController extends Controller
      */
     public function show($id)
     {
-        //
+      return $product= City::find($id);
+
     }
 
     /**
