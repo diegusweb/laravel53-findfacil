@@ -18,3 +18,5 @@ use Illuminate\Http\Request;
 })->middleware('auth:api');*/
 
 Route::resource('/v1/city', 'Api\CityController');
+
+Route::resource('/v1/items', 'Api\ItemController');
