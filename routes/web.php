@@ -12,6 +12,14 @@
 */
 
 Route::get('/', function () {
+    return view('web');
+});
+
+Route::get('/login', function () {
+    return view('web');
+});
+
+Route::get('/admin', function () {
     return view('app');
 });
 
