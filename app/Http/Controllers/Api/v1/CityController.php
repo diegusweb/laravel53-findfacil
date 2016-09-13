@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Models\Api\City;
+use App\Models\Api\v1\City;
 
 class CityController extends Controller
 {
