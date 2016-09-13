@@ -17,6 +17,6 @@ use Illuminate\Http\Request;
     return $request->user();
 })->middleware('auth:api');*/
 
-Route::resource('/v1/city', 'Api\CityController');
+Route::resource('/v1/city', 'Api\v1\CityController');
 
-Route::resource('/v1/items', 'Api\ItemController');
+Route::resource('/v1/items', 'Api\v1\ItemController');
