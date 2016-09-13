@@ -33,3 +33,10 @@ Route::group(array('prefix'=>'/templates/'),function(){
         return View::make('templates.'.$template);
     }));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
