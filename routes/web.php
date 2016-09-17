@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('web');
-});
+Route::get('/', 'Web\HomeController@index');
+
+/*Route::get('/', function () {
+    return view('web.app');
+});*/
 
 Route::get('/login', function () {
-    return view('web');
+    return view('web.appaa');
 });
 
 Route::get('/admin', function () {
