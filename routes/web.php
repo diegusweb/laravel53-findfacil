@@ -20,7 +20,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/admin', function () {
-    return view('app');
+    return view('admin.admin');
 });
 
 
@@ -38,5 +38,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/redirect', 'SocialAuthController@redirect');
-Route::get('/callback', 'SocialAuthController@callback');
+//Route::get('/redirect', 'SocialAuthController@redirect');
+//Route::get('/callback', 'SocialAuthController@callback');
