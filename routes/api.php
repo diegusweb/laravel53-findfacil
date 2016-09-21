@@ -19,3 +19,7 @@ Route::get('/user', function (Request $request) {
 
 Route::resource('authenticate', 'Api\v1\AuthenticateController', ['only' => ['index']]);
 Route::post('authenticate', 'Api\v1\AuthenticateController@authenticate');
+
+Route::resource('/v1/city', 'Api\v1\CityController');
+
+Route::resource('/v1/items', 'Api\v1\ItemController');
