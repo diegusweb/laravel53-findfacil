@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Web\HomeController@index');
+Route::get('/find', 'Web\HomeController@find');
 
 /*Route::get('/', function () {
     return view('web.app');

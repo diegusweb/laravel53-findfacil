@@ -26,4 +26,9 @@ class HomeController extends Controller
     {
         return view('web.index');
     }
+
+    public function find()
+    {
+        return view('web.find');
+    }
 }
