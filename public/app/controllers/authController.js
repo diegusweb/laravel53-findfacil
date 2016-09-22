@@ -49,8 +49,8 @@
 				$state.go('items');
 			}, function(error) {
 				console.log(error);
-				//vm.loginError = true;
-				//vm.loginErrorText = error.data.error;
+				vm.loginError = true;
+				vm.loginErrorText = error.data.error;
 			});
 		}
 

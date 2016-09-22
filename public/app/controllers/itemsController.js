@@ -32,7 +32,7 @@
 				// Redirect to auth (necessary for Satellizer 0.12.5+)
 				$state.go('auth');
 			});
-}
+		}		
         /*$http.get('api/v1/items').success(function(users) {
             vm.users = users.data;
             vm.totalItems = users.total;
