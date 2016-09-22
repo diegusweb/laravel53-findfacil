@@ -1,8 +1,29 @@
 angular
     .module('main-App')
-    .factory('dataFactory', dataFactory);
+    .factory('dataservice', dataservice);
 
-function dataFactory($http) {
+	
+function dataservice($http){
+	return {
+        getItems: getItems
+    };
+
+    function getItems(searchText, pageNumber) {
+        return $http.get('/api/v1/items?search='+searchText+'&page='+pageNumber')
+            .then(getAvengersComplete)
+            .catch(getAvengersFailed);
+
+        function getAvengersComplete(response) {
+            return response;
+        }
+
+        function getAvengersFailed(error) {
+            logger.error('XHR Failed for getItems.' + error.data);
+        }
+    }
+}
+	
+function dataFactory_old($http) {
     var myService = {
       httpRequest: function(url,method,params,dataPost,upload) {
         var passParameters = {};

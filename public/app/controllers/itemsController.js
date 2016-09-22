@@ -6,7 +6,7 @@
 		.module('main-App')
 		.controller('ItemsController', ItemsController);
 
-	function ItemsController($http,$auth, $rootScope, $state, dataFactory) {
+	function ItemsController($http,$auth, $rootScope, $state, dataService) {
 
 		var vm = this;
 
@@ -45,12 +45,13 @@
 
         function getResultsPage(pageNumber) {
           if(! $.isEmptyObject(vm.libraryTemp)){
-              dataFactory.httpRequest('/api/v1/items?search='+vm.searchText+'&page='+pageNumber).then(function(data) {
+				
+             dataService.getItems(vm.searchText, pageNumber).then(function(data) {
                 vm.users = data.data;
                 vm.totalItems = data.total;
               });
           }else{
-            dataFactory.httpRequest('/api/v1/items?page='+pageNumber).then(function(data) {
+            dataService.getItems(vm.searchText, pageNumber).then(function(data) {
               vm.users = data.data;
               vm.totalItems = data.total;
             });
