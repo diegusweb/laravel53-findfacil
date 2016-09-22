@@ -1,4 +1,6 @@
-app.factory('dataFactory', function($http) {
+angular
+    .module('main-App')
+    .factory('dataFactory', function($http) {
   var myService = {
     httpRequest: function(url,method,params,dataPost,upload) {
       var passParameters = {};

@@ -26,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr dir-paginate="value in data | itemsPerPage:5" total-items="totalItems">
+        <tr dir-paginate="value in item.users | itemsPerPage:5" total-items="item.totalItems">
             <td>{{ $index + 1 }}</td>
             <td>{{ value.title }}</td>
             <td>{{ value.description }}</td>

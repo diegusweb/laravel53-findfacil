@@ -18,20 +18,26 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	
+
 	<!-- Angular JS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>  
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>-->
 
 	<!-- MY App -->
-	<script src="{{ asset('/app/packages/dirPagination.js') }}"></script>
-	<script src="{{ asset('/app/routes.js') }}"></script>
+	<!-- Application Dependencies -->
+	<script src="{{ asset('/app/node_modules/angular/angular.js') }}"></script>
+	<script src="{{ asset('/app/node_modules/angular-ui-router/release/angular-ui-router.js') }}"></script>
 	<script src="{{ asset('/app/services/myServices.js') }}"></script>
-	<script src="{{ asset('/app/helper/myHelper.js') }}"></script>
+	<script src="{{ asset('/app/node_modules/satellizer/dist/satellizer.js') }}"></script>
+	<script src="{{ asset('/app/packages/dirPagination.js') }}"></script>
+
+	<script src="{{ asset('/app/routes.js') }}"></script>
 
 	<!-- App Controller -->
-	<script src="{{ asset('/app/controllers/ItemController.js') }}"></script>
+	<script src="{{ asset('/app/controllers/AuthController.js') }}"></script>
+	<script src="{{ asset('/app/controllers/ItemsController.js') }}"></script>
 
 </head>
 <body ng-app="main-App">
@@ -57,7 +63,7 @@
 	</nav>
 
 	<div class="container">
-		<ng-view></ng-view>
+		<ui-view></ui-view>
 	</div>
 
 	<!-- Scripts -->
