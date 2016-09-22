@@ -10,9 +10,11 @@
 
 		var vm = this;
 
-		vm.users;
+		vm.users = [];
 		vm.error;
         vm.libraryTemp = {};
+        vm.totalItems = 0;
+
 
         /*$http.get('api/v1/items').success(function(users) {
             vm.users = users.data;
@@ -27,23 +29,21 @@
         function getResultsPage(pageNumber) {
           if(! $.isEmptyObject(vm.libraryTemp)){
               dataFactory.httpRequest('/api/v1/items?search='+vm.searchText+'&page='+pageNumber).then(function(data) {
-                vm.users = users.data;
+                vm.users = data.data;
                 vm.totalItems = data.total;
               });
           }else{
             dataFactory.httpRequest('/api/v1/items?page='+pageNumber).then(function(data) {
-              $vm.users = users.data;
+              vm.users = data.data;
               vm.totalItems = data.total;
             });
           }
-      }
+      };
 
-		vm.getUsers = function() {
+      vm.pageChanged = function(newPage) {
+        getResultsPage(newPage);
+      };
 
-			// This request will hit the index method in the AuthenticateController
-			// on the Laravel side and will return the list of users
-
-		}
 	}
 
 })();

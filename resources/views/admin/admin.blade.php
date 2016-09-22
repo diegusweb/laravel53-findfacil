@@ -29,11 +29,12 @@
 	<!-- Application Dependencies -->
 	<script src="{{ asset('/app/node_modules/angular/angular.js') }}"></script>
 	<script src="{{ asset('/app/node_modules/angular-ui-router/release/angular-ui-router.js') }}"></script>
+	<script src="{{ asset('/app/routes.js') }}"></script>
 	<script src="{{ asset('/app/services/myServices.js') }}"></script>
 	<script src="{{ asset('/app/node_modules/satellizer/dist/satellizer.js') }}"></script>
 	<script src="{{ asset('/app/packages/dirPagination.js') }}"></script>
 
-	<script src="{{ asset('/app/routes.js') }}"></script>
+
 
 	<!-- App Controller -->
 	<script src="{{ asset('/app/controllers/AuthController.js') }}"></script>

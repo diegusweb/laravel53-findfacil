@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('main-App', ['ui.router', 'satellizer'])
+		.module('main-App', ['ui.router', 'satellizer','angularUtils.directives.dirPagination'])
 		.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
 
