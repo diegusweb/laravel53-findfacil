@@ -6,7 +6,7 @@
 		.module('main-App')
 		.controller('ItemsController', ItemsController);
 
-	function ItemsController($http,dataFactory) {
+	function ItemsController($http,$auth, $rootScope, $state, dataFactory) {
 
 		var vm = this;
 
@@ -15,7 +15,24 @@
         vm.libraryTemp = {};
         vm.totalItems = 0;
 
+		vm.logout = function() {
 
+			$auth.logout().then(function() {
+
+				// Remove the authenticated user from local storage
+				localStorage.removeItem('user');
+
+				// Flip authenticated to false so that we no longer
+				// show UI elements dependant on the user being logged in
+				$rootScope.authenticated = false;
+
+				// Remove the current user info from rootscope
+				$rootScope.currentUser = null;
+
+				// Redirect to auth (necessary for Satellizer 0.12.5+)
+				$state.go('auth');
+			});
+}
         /*$http.get('api/v1/items').success(function(users) {
             vm.users = users.data;
             vm.totalItems = users.total;
