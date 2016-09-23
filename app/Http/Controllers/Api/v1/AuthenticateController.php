@@ -50,13 +50,13 @@ class AuthenticateController extends Controller
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));
     }
-	
+
 	/**
      * Return the authenticated user
      *
      * @return Response
      */
-	 public function getAuthenticationUser()
+	 public function getAuthenticatedUser()
 	 {
 		try {
             if (! $user = JWTAuth::parseToken()->authenticate()) {
@@ -69,7 +69,7 @@ class AuthenticateController extends Controller
         } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
             return response()->json(['token_absent'], $e->getStatusCode());
         }
-		
+
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
 	 }

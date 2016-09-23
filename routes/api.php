@@ -34,7 +34,7 @@ Route::resource('/v1/authenticate', 'Api\v1\AuthenticateController', ['only' => 
 
 Route::post('/v1/authenticate', 'Api\v1\AuthenticateController@authenticate');
 
-Route::get('/v1/authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+Route::get('/v1/authenticate/user', 'Api\v1\AuthenticateController@getAuthenticatedUser');
 
 Route::resource('/v1/city', 'Api\v1\CityController');
 

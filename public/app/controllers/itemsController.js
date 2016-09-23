@@ -6,7 +6,7 @@
 		.module('main-App')
 		.controller('ItemsController', ItemsController);
 
-	function ItemsController($http,$auth, $rootScope, $state, dataService) {
+	function ItemsController($http,$auth, $rootScope, $state, dataFactory) {
 
 		var vm = this;
 
@@ -32,7 +32,7 @@
 				// Redirect to auth (necessary for Satellizer 0.12.5+)
 				$state.go('auth');
 			});
-		}		
+		}
         /*$http.get('api/v1/items').success(function(users) {
             vm.users = users.data;
             vm.totalItems = users.total;
@@ -45,14 +45,14 @@
 
         function getResultsPage(pageNumber) {
           if(! $.isEmptyObject(vm.libraryTemp)){
-				
-             dataService.getItems(vm.searchText, pageNumber).then(function(data) {
+              dataFactory.httpRequest('/api/v1/items?search='+vm.searchText+'&page='+pageNumber).then(function(data) {
                 vm.users = data.data;
                 vm.totalItems = data.total;
               });
           }else{
-            dataService.getItems(vm.searchText, pageNumber).then(function(data) {
-              vm.users = data.data;
+            dataFactory.httpRequest('/api/v1/items?page='+pageNumber).then(function(data) {
+				console.log(data.data);
+			  vm.users = data.data;
               vm.totalItems = data.total;
             });
           }

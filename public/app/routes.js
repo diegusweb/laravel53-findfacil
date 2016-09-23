@@ -1,32 +1,11 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @diegusweb
-
-6
-52
-
-    90
-
-chenkie/jot-bot
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
 (function() {
 
 	'use strict';
 
 	angular
-		.module('authApp', ['ui.router', 'satellizer'])
+		.module('main-App', ['ui.router', 'satellizer','angularUtils.directives.dirPagination'])
 		.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
-			
+
 			function redirectWhenLoggedOut($q, $injector) {
 
 				return {
@@ -47,9 +26,9 @@ Wiki
 						angular.forEach(rejectionReasons, function(value, key) {
 
 							if(rejection.data.error === value) {
-								
+
 								// If we get a rejection corresponding to one of the reasons
-								// in our array, we know we need to authenticate the user so 
+								// in our array, we know we need to authenticate the user so
 								// we can remove the current user from local storage
 								localStorage.removeItem('user');
 
@@ -69,10 +48,10 @@ Wiki
 			// Push the new factory onto the $http interceptor array
 			$httpProvider.interceptors.push('redirectWhenLoggedOut');
 
-			$authProvider.loginUrl = '/api/authenticate';
+			$authProvider.loginUrl = '/api/v1/authenticate';
 
 			$urlRouterProvider.otherwise('/auth');
-			
+
 			$stateProvider
 				.state('auth', {
 					url: '/auth',
@@ -92,7 +71,7 @@ Wiki
 			$rootScope.$on('$stateChangeStart', function(event, toState) {
 
 				// Grab the user from local storage and parse it to an object
-				var user = JSON.parse(localStorage.getItem('user'));			
+				var user = JSON.parse(localStorage.getItem('user'));
 
 				// If there is any user data in local storage then the user is quite
 				// likely authenticated. If their token is expired, or if they are
@@ -120,7 +99,7 @@ Wiki
 
 						// go to the "main" state which in our case is users
 						$state.go('items');
-					}		
+					}
 				}
 			});
 		});
