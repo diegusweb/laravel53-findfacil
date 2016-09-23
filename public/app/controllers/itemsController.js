@@ -5,6 +5,8 @@
 	angular
 		.module('main-App')
 		.controller('ItemsController', ItemsController);
+		
+	//ItemsController.$inject = ['$http', '$auth', 'rootScope', 'state','dataFactory'];	
 
 	function ItemsController($http,$auth, $rootScope, $state, dataFactory) {
 
@@ -33,13 +35,6 @@
 				$state.go('auth');
 			});
 		}
-        /*$http.get('api/v1/items').success(function(users) {
-            vm.users = users.data;
-            vm.totalItems = users.total;
-
-        }).error(function(error) {
-            vm.error = error;
-        });*/
 
         getResultsPage(1);
 
